@@ -1,0 +1,35 @@
+{
+  "name": "corazon",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "connect-mongo": "^3.2.0",
+    "cookie-parser": "~1.4.4",
+    "covid19-api": "^1.2.1",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-flash": "0.0.2",
+    "express-handlebars": "^5.1.0",
+    "express-session": "^1.17.1",
+    "fs": "0.0.1-security",
+    "googleapis": "^39.2.0",
+    "handlebars": "^4.7.6",
+    "hbs": "^4.1.1",
+    "html2canvas": "^1.0.0-rc.7",
+    "http-errors": "~1.6.3",
+    "jspdf": "^2.1.1",
+    "just-handlebars-helpers": "^1.0.18",
+    "mongodb": "^3.6.2",
+    "morgan": "~1.9.1",
+    "nodemailer": "^6.4.18",
+    "nodemon": "^2.0.5",
+    "pdf-puppeteer": "^1.1.10",
+    "pdfkit": "^0.11.0",
+    "promise": "^8.1.0",
+    "qrcode": "^1.4.4"
+  }
+}
