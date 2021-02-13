@@ -1,0 +1,97 @@
+<style>
+    .container {
+        width: 50%;
+    }
+
+    #map {
+        height: 50vh;
+        margin-bottom: 10px;
+        display: none;
+    }
+
+    #locationList .card {
+        padding: 10px;
+    }
+
+    #toast-container {
+        top: 50%;
+        bottom: unset;
+    }
+
+    .toast {
+        background-color: rgba(0, 0, 0, .8);
+    }
+
+    .btn i {
+        font-size: 1rem;
+        margin-right: 2px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        .container {
+            width: 80%;
+            max-width: 800px;
+        }
+    }
+</style>
+
+<div class="limiter">
+    <div class="container-login100" style="background-color: grey;">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-25 p-b-25">
+            <form class="login100-form validate-form" method="POST" action="/customerRecord/createRecord/?userId={{userId}}"">
+                <span class="login100-form-title p-b-25">
+                    Customer Details
+                </span>
+
+                <div class="wrap-input100 validate-input m-b-10" data-validate="First Name is required">
+                    <span class="label-input100">First Name</span>
+                    <input class="input100" type="firstname" name="firstname" placeholder="Type your First Name">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Lastame is required">
+                    <span class="label-input100">Last Name</span>
+                    <input class="input100" type="lastname" name="lastname" placeholder="Type your Last Name">
+                    <span class="focus-input100" data-symbol="&#xf207;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Email is required">
+                    <span class="label-input100">Email</span>
+                    <input class="input100" type="email" name="email" placeholder="Type your email">
+                    <span class="focus-input100" data-symbol="&#xf15a;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Mobile is required">
+                    <span class="label-input100">Mobile No.</span>
+                    <input class="input100" type="mobile" name="mobile" placeholder="Type your mobile">
+                    <span class="focus-input100" data-symbol="&#xf2be;"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Address is required">
+                    <span class="label-input100">Address</span>
+                    <input class="input100" type="address" name="address" placeholder="Type your address">
+                    <span class="focus-input100 fas" data-symbol="&#xf130"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Time is required">
+                    <span class="label-input100">Time</span>
+                <input  class="input100" type="time" name="time" id="time">
+                <input type="text" name="date" id="date" >
+                <span class="focus-input100" data-symbol="&#xf21d;"></span>
+                </div>
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button type="submit" class="login100-form-btn">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+d=new Date()
+document.getElementById('time').value=d.toLocaleTimeString();
+document.getElementById('date').value=d.toDateString();
+console.log(d.toDateString())
+</script>

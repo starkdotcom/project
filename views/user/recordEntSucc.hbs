@@ -1,0 +1,118 @@
+<style>
+  body {
+    background-color: rgb(0, 0, 0);
+  }
+
+  .contain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .close{
+    z-index: 100;
+    color: rgb(255, 0, 0);
+    position: relative;
+    top: -41px;
+    left: 309px;
+    animation: visib 1s linear 0s  alternate;
+    font-size: large;
+  }
+  .confirm {
+    width: 320px;
+    height: 320px;
+    position: relative;
+    top: 95px;
+    border-radius: 10px;
+    background-color: rgb(171, 171, 209);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .round {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background-color: rgb(49, 105, 226);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .confirm{
+ animation: scale 0.5s linear 0.5s  alternate;
+   -webkit-animation-delay:0s;
+   animation-delay: 0s; 
+  
+  }
+
+  #bt{
+    position:relative;
+    
+  }
+  .tick-left {
+    width: 30px;
+    height: 100px;
+    position: relative;
+    top: 10%;
+    left: -15%;
+    background-color: white;
+    transform: rotate(-45deg);
+  }
+
+  .tick-right {
+    position: relative;
+    top: 0%;
+    left: 7%;
+    background-color: white;
+    width: 30px;
+    height: 200px;
+    transform: rotate(45deg);
+  }
+  @-webkit-keyframes  visib{ 
+  0%{
+    transform: scale(0)
+  },
+    50%{
+    transform: scale(0)
+  },
+  100%{
+    transform: scale(1)
+  }}
+@-webkit-keyframes scale{100% { transform: scale(1.1) }}
+
+</style>
+
+<div id="contain" class="contain">
+<button  id="cls-btn" class="close">X</button>
+  <div id="confirm" class="confirm">
+    <div class="round">
+
+      <div class="tick-left">
+      </div>
+      <div class="tick-right">
+      </div>
+      
+    </div>
+  </div>
+
+          <audio autoplay>
+  <source src="/shattered_glass_hitting_metal.ogg" type="audio/ogg">
+  </audio>
+<div id="bt"></div>
+</div>  
+
+ 
+<script>
+  
+  var confir=document.getElementById("confirm");
+  var clos=document.getElementById("cls-btn");
+
+   var bt=document.getElementById("bt");
+  clos.addEventListener('click', event => {
+     // bt.style.display="contents";
+    confir.style.display="none";
+    clos.style.display="none";
+    //recd.style.display="";
+     bt.innerHTML='<div><h2  class="mt-5 p-3 text-center text-danger">Record Saved.</h2></div></br><div><a class="btn btn-success text-center m-4 p-2"  href="{{url}}" >Add another Record</a></div>';
+     });
+</script>

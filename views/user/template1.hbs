@@ -1,0 +1,99 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <title> - Digital Consultant</title>
+</head>
+<style>
+    body {
+        color:black;
+        background:url('/Images/temp15.jpg');
+        background-repeat: no-repeat;
+        background-size:cover;
+        text-align: center;
+        margin: auto;
+        padding: 3rem;
+    }
+
+    .fas,
+    .fab {
+        color: black;
+        font-size: 30px;
+    }
+
+    a {
+        margin: 15px;
+    }
+
+    span,
+    p {
+        margin: 8px;
+        color:black;
+    }
+
+    div {
+        padding: 15px;
+        display: flex-box;
+    }
+    @media print {
+    @page {
+        size: A5 portrait;
+        margin: 0;
+        background-size: 14.8cm 21.0cm;
+    }
+    }
+}
+</style>
+
+<body>
+    {{#with profile}}
+    <div>
+        <h1>{{this.firstname}} {{this.lastname}}</h1>
+        <p>Digital Marketer</p>
+    </div>
+    <div>
+        <div data-modal="companyepopup" class="m-3">
+            <i class="fas fa-building "></i><span>Company</span>
+        <i class="fas fa-handshake "></i><span> Digital Solutions</span>
+        </div>
+        <div class="m-0">
+        <a href="http://localhost:3000/customerRecord/createRecord/?userId={{../id}}"><i class="fas fa-book "></i><h4 class="text-dark"><span>CORAZON RECORD SERVICE</span></h4></a>
+        </div>
+        <div class="mt-0">
+            <p>Contact :</p>
+            <div><a href="tel:{{this.mobile}}"><i class="fas fa-phone fa-flip-horizontal "></i><span>Call Me</span></a>
+
+                <a href="mailto:{{this.email}}"><i class="fas fa-envelope  "></i><span>Email Me</span></a>
+                <a
+                    href="https://api.whatsapp.com/send?phone=91{{this.mobile}}&amp;text=Got%20reference%20from%20your%20Digital%20vCard.%20Want%20to%20know%20more%20about%20your%20products%20and%20services."><i
+                        class="fab fa-whatsapp "></i><span>Whatsapp</span></a></div>
+            <div>
+                <a href="https://www.facebook.com//" target="_blank">
+                    <i class="fab fa-facebook-messenger "></i>
+                    <span>FB Chat</span></a>
+            </div>
+
+
+            <div class="m-3"><a href="{{this.websiteLink}}" target="_blank"><i
+                        class="fas fa-globe "></i><span>Website</span></a>
+                <a href="https://maps.google.com/maps?q={{this.lat}},{{this.long}}" target="_blank">
+                    <i class="fas fa-map-marker-alt "></i><span>Location</span></a>
+            </div>
+
+            <div class="mt-4" style="padding: 0;">
+                <p>Follow Me :</p>
+                <a class="pt-5" href="{{this.facebookLink}}" style="margin-bottom: 0;" target="_blank"><i
+                        class="fab fa-facebook-f "></i></a>
+                <a class="pt-5" href="{{this.instaLink}}" style="margin-bottom: 0;" target="_blank"><i
+                        class="fab fa-instagram "></i></a>
+                <a class="pt-5" href="{{this.youtubeLink}}" style="margin-bottom: 0;" target="_blank"><i
+                        class="fab fa-youtube "></i></a>
+            </div>
+
+        </div>
+    </div>
+
+    {{/with}}
+</body>
+
+</html>

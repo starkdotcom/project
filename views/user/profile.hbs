@@ -1,0 +1,230 @@
+<style>
+    .container {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .box {
+        border: 3px solid #ffffff;
+        border-radius: 20px;
+        padding: 0;
+        margin: 0;
+
+    }
+
+    /* background-color: #808080;
+    }*/
+
+    .boxin {
+        overflow: hidden;
+        border-bottom: 2px solid #fafafa;
+        padding: 0;
+        margin: auto;
+    }
+</style>
+
+<div class="container text-center">
+    <h1 class="text-center">Profile</h1>
+    <div class="container-fluid p-0" style="display: block; width:100%;   border-radius: 4px;border: 1px #ddd    position: relative;">
+<img style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src= "{{../qrco}}">
+ 
+        <div style="text-align:left; font-size: large;">
+            </div<br>
+            <ul class="box">
+                {{#with profile}}
+                <input type="text" id="link" value="{{this.recLink}}" hidden>
+                <div id="canvas">
+                    
+                </div>
+                <li class="boxin">
+                    <form action="/digitalCard/profile/edit" method="GET">
+                        <div class="row">
+                            <div class="col-9 p-3 pl-5 m-0">
+                                <div class="row"><strong>Name:</strong></div>
+                                <div class="row" style="overflow:hidden;">{{this.firstname}} {{this.lastname}}</div>
+                            </div>
+                            <div class="col-3 m-auto" style="padding-right: 2rem;padding-left: 0;">
+                                <span>
+                                    <input type="hidden" name="id" value={{../id}}>
+                                    <input type="hidden" name="value" value="name">
+                                    <input class="btn btn-grey" type="submit" value="Edit">
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+                <li class="boxin">
+                    <form action="/digitalCard/profile/edit" method="GET">
+                        <div class="row" style="">
+                            <div class="col-9 p-3 pl-5 m-0">
+                                <div class="row"><strong>E-mail:</strong></div>
+                                <div class="row" style="overflow:hidden;">{{this.email}} </div>
+                            </div>
+                            <div class="col-3 m-auto" style="padding-right: 2rem;padding-left: 0;">
+                                <span>
+                                    <input type="hidden" name="id" value={{../id}}>
+                                    <input type="hidden" name="value" value="email">
+                                    <input class="btn btn-grey" type="submit" value="Edit">
+                                </span>
+                            </div>
+                        </div>
+
+                    </form>
+                </li>
+                <li class="boxin">
+                 <div class="row" style="">
+                            <div class="col-9 p-3 pl-5 m-0"<strong>CORAZON Record Service:</strong></div>
+                            <div class="col-3 m-auto" style="overflow:hidden;"><a href="http://localhost:3000/customerRecord/createRecord/?userId={{../id}}" class="btn text-dark bg-white">Click</a> </div> 
+                        </li>
+                <li class="boxin">
+                    <form action="/digitalCard/profile/edit" method="GET">
+                        <div class="row" style="">
+                            <div class="col-9 p-3 pl-5 m-0">
+                                <div class="row"><strong>Mobile No:</strong></div>
+                                <div class="row" style="overflow:hidden;">{{this.mobile}} </div>
+                            </div>
+                            <div class="col-3 m-auto" style="padding-right: 2rem;padding-left: 0;">
+                                <span>
+                                    <input type="hidden" name="id" value={{../id}}>
+                                    <input type="hidden" name="value" value="mobile">
+                                    <input class="btn btn-grey" type="submit"  value="Edit">
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+                <li class="boxin">
+                    <form action="/digitalCard/profile/edit" method="GET">
+                        <div class="row" style="">
+                            <div class="col-9 p-3 pl-5 m-0">
+                                <div class="row"><strong>Instagram Link :</strong></div>
+                                <div class="row" style="overflow:hidden;">{{this.instaLink}} </div>
+                            </div>
+                            <div class="col-3 m-auto" style="padding-right: 2rem;padding-left: 0;">
+                                <span>
+                                    <input type="hidden" name="id" value={{../id}}>
+                                    <input type="hidden" name="value" value="instaLink">
+                                    <input class="btn btn-grey" type="submit" value="Edit">
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+                <li class="boxin">
+                    <form action="/digitalCard/profile/edit" method="GET">
+                        <div class="row" style="">
+                            <div class="col-9 p-3 pl-5 m-0">
+                                <div class="row"><strong> Whatsapp No:</strong></div>
+                                <div class="row" style="overflow:hidden;">{{this.whatsappNo}} </div>
+                            </div>
+                            <div class="col-3 m-auto" style="padding-right: 2rem;padding-left: 0;">
+                                <span>
+                                    <input type="hidden" name="id" value={{../id}}>
+                                    <input type="hidden" name="value" value= "whatsappNo">
+                                   
+                                    <input class="btn btn-grey" type="submit"  value="Edit">
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+                <li class="boxin">
+                    <form action="/digitalCard/profile/edit" method="GET">
+                        <div class="row" style="">
+                            <div class="col-9 p-3 pl-5 m-0">
+                                <div class="row"><strong>Youtube Link:</strong></div>
+                                <div class="row" style="overflow:hidden;">{{this.youtubeLink}} </div>
+                            </div>
+                            <div class="col-3 m-auto" style="padding-right: 2rem;padding-left: 0;">
+                                <span>
+                                    <input type="hidden" name="id" value={{../id}}>
+                                    <input type="hidden" name="value" value="youtubeLink">
+                                    <input class="btn btn-grey" type="submit"  value="Edit">
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+                <li class="boxin">
+                    <form action="/digitalCard/profile/edit" method="GET">
+                        <div class="row" style="">
+                            <div class="col-9 p-3 pl-5 m-0">
+                                <div class="row"><strong>Facebook Link:</strong></div>
+                                <div class="row" style="overflow:hidden;">{{this.facebookLink}} </div>
+                            </div>
+                            <div class="col-3 m-auto" style="padding-right: 2rem;padding-left: 0;">
+                                <span>
+                                    <input type="hidden" name="id" value={{../id}}>
+                                    <input type="hidden" name="value" value="facebookLink">
+                                    <input class="btn btn-grey" type="submit"  value="Edit">
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+                <li class="boxin"style="border-bottom:none;" >
+                    <form action="/digitalCard/profile/edit" method="GET">
+                        <div class="row" style="">
+                            <div class="col-9 p-3 pl-5 m-0">
+                                <div class="row"><strong>Location:</strong></div>
+                                <div class="row" style="overflow:hidden;">{{this.lat}},{{this.long}}</div>
+                            </div>
+                            <div class="col-3 m-auto" style="padding-right: 2rem;padding-left: 0;">
+                                <span>
+                                    <input type="hidden" name="id" value={{../id}}>
+                                    <input type="hidden" name="value" value="location">
+                                    <input class="btn btn-grey" type="submit"  value="Edit">
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+                {{/with}}
+                {{#each addr}}
+                <li class="boxin" style="border-bottom:none;">
+                    <form action="/digitalCard/profile/edit/updateAddress/{{@index}}" method="get">
+
+                        <div class="row" style="">
+
+
+                            <div class="col-9 p-3 pl-5 m-0">
+                                <div class="row"><strong>Address:</strong></div>
+
+                                <div class="row"><input type="radio" value="{{@index}}">
+                                    {{this.name}}<br>{{this.address}},{{this.city}},{{this.state}},{{this.zip}}<br>{{this.mobile}}
+                                    <hr>
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="col-3 m-auto" style="padding-right: 2rem;padding-left: 0;">
+                                <span>
+                                    <button class="btn btn-grey" type="submit">Edit</button>
+                                </span>
+                                <span><a href="/addAddress" class="btn btn-grey bg-white" type="submit"
+                                        name="addAddress">Add Address</a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </form>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <script>
+    var link = document.getElementById('link').value;
+    var canvas = document.getElementById('canvas');
+const generateQR = async link => {
+  try {
+ console.log(link)
+    await QRCode.toCanvas(canvas, link)
+  } catch (err) {
+    console.error(err)
+  }
+}
+</script>

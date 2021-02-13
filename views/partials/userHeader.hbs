@@ -1,0 +1,285 @@
+<style>
+  @import"https://fonts.googleapis.com/css?family=Caveat&display=swap";
+  @import"https://fonts.googleapis.com/css?family=Space+Mono&display=swap";
+
+
+  nav{
+    background-color: black;
+  }
+  nav .navbar-brand a {
+    color: white;
+    width: fit-content;
+    height: fit-content;
+
+  }
+
+  nav ul li {
+    display: inline-block;
+    list-style-type: none;
+    text-decoration: none;
+  }
+
+  nav .nav-link {
+    color: azure;
+    background-size: contain;
+    font-family: 'Space Mono', monospace;
+    font-size: medium;
+    padding: 10px;
+    text-decoration: none;
+    transition: transform .1s;
+    cursor: pointer;
+    margin: 0 .5em 0 0;
+    line-height: 1em;
+    text-align: center;
+    border-radius: .28571429rem;
+
+    background-repeat: no-repeat;
+    background-position: -120px -120px, 0 0;
+
+    background-image: -webkit-linear-gradient(top left,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.774) 45%,
+        rgba(255, 255, 255, 0.0) 50%);
+    background-image: -moz-linear-gradient(0 0,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0) 45%,
+        rgba(255, 255, 255, 0.0) 50%);
+    background-image: -o-linear-gradient(0 0,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0) 45%,
+        rgba(255, 255, 255, 0.0) 50%);
+    background-image: linear-gradient(0 0,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0.0) 50%);
+    -moz-background-size: 250% 250%, 100% 100%;
+    background-size: 250% 250%, 100% 100%;
+    -webkit-transition: background-position 0s ease;
+    -moz-transition: background-position 0s ease;
+    -o-transition: background-position 0s ease;
+    transition: background-position 0s ease;
+  }
+
+  nav .navbar-brand {
+    font-family: 'Caveat', cursive;
+
+    /*background:url("https://www.freelogodesign.org/file/app/client/thumb/d8f8bda1-652b-4b8d-9594-3471f29dac13_200x200.png?1592835894923") no-repeat;
+    */
+    color: azure;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  nav .navbar-brand:hover {
+    transform: scale(1.1);
+    background-position: 0 0, 0 0;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+
+  #signup,
+  #user {
+    box-sizing: content-box;
+    border: 2px solid azure;
+    border-radius: 5px;
+  }
+
+  nav .nav-link:hover {
+    color: #070202b7;
+    transform: scale(1.1);
+    background-position: 0 0, 0 0;
+
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+
+  nav .navbar-toggler {
+    box-shadow: 0 0 2px rgb(255, 255, 255);
+    background-image: linear-gradient(45deg, #ffffff 35%, #df5353 70%);
+    transition: transform .1s;
+    cursor: pointer;
+    margin: 0 .5em 0 0;
+    line-height: 1em;
+    text-align: center;
+    border-radius: .29571429rem;
+
+
+
+    background-repeat: no-repeat;
+    background-position: -120px -120px, 0 0;
+
+    background-image: -webkit-linear-gradient(top left,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0.0) 50%);
+    background-image: -moz-linear-gradient(0 0,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0.0) 50%);
+    background-image: -o-linear-gradient(0 0,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0.0) 50%);
+    background-image: linear-gradient(0 0,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0.0) 50%);
+
+    -moz-background-size: 250% 250%, 100% 100%;
+    background-size: 250% 250%, 100% 100%;
+
+    -webkit-transition: background-position 0s ease;
+    -moz-transition: background-position 0s ease;
+    -o-transition: background-position 0s ease;
+    transition: background-position 0s ease;
+  }
+
+  nav .navbar-toggler:hover {
+    transform: scale(1.1);
+
+
+    background-position: 0 0, 0 0;
+
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+
+  .btn {
+    border: 0px;
+    margin: auto;
+
+  }
+</style>
+{{#if template}}
+{{else}}
+<nav class="navbar navbar-expand-lg navbar-dark " style="z-index: 100;">
+  <a class="navbar-brand" href="/">
+    <h1>Corazon</h1>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+
+      <li class="nav-item active btn p-0 pl-2 pr-2">
+        <a class="nav-link" href="/">Dashboard</a>
+      </li>
+      <li class="nav-item active btn p-0 pl-2 pr-2">
+        <a class="nav-link" href="/digitalCard/profile">Digital Card</a>
+      </li>
+      <li class="nav-item active btn p-0 pl-2 pr-2">
+        <a class="nav-link" href="/customerRecord/record">Customer Record<span class="badge badge-success"
+            id="cartCount">{{#if user}}{{cartCount}}{{/if}}</span></a>
+      </li>
+      {{!#if user}}
+     {{! <li class="nav-item active btn p-0 pl-2 pr-2">
+        <a class="nav-link" href="/profile">Profile</a>
+      </li>
+      {{/if}}
+    </ul>
+    {{#if user}}
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active btn  p-0">
+        <div class="dropdown text-light ">
+          <button id="user" class="btn  dropdown-toggle nav-link p-2 m-auto" type="button" id="dropdownMenuButton"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{user.firstname}}
+          </button>
+          <div class="dropdown-menu dropdown-menu-right text-light bg-dark" aria-labelledby="dropdownMenuButton">
+            <div class="card  dropdown-item m-auto text-light bg-dark" style="padding:0rem; width:17rem; height:21rem;">
+
+              <img class="card-img dropdown-item m-auto text-light bg-dark"
+                style="width:15.3rem; height:13rem; border-radius:50%" {{#if user.dp}} src="/userImages/{{user.dp}}.png"
+                {{else}}src="/user/profileImages/defaultdp.jpg" {{/if}}alt="Card image cap">
+              <div class="card-body dropdown-item text-center text-light bg-dark" style=" height:7rem">
+                <h5 class="card-title dropdown-item text-center text-light bg-dark">{{user.firstname}} {{user.lastname}}
+                </h5>
+                <p class="card-text dropdown-item text-center text-light bg-dark">{{user.email}}</p>
+              </div>
+            </div>
+
+            <a class="dropdown-item text-light bg-dark" href="#">Manage your Account</a>
+            <a class="dropdown-item btn btn-light text-light bg-dark" href="/account/signout">Log Out</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    {{else}}
+    <!div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ml-auto my-auto text-white ">
+        <li class="nav-item active">
+          <a class="nav-link" href="/account/login">Log in </a>
+        </li>
+        <li class="nav-item active">
+          <a id="signup" class="nav-link" href="/account/signup">Create an account</a>
+        </li>
+      </ul>
+      <! /div>
+        {{!<ul class="navbar-nav ml-auto">
+      <li class="nav-item active btn btn-light p-0 pl-2 pr-2">
+        <a class="nav-link text-dark" href="/login">Login</a>
+      </li>
+      <li class="nav-item active btn p-0 pl-2 pr-2">
+        <a class="nav-link" href="/login/register">Register</a>
+      </li>
+    </ul>}}
+        {{/if}}
+  </div>
+</nav>
+{{#if digitalCard}}
+<nav class="navbar navbar-expand navbar-dark " style="z-index: 10; position:relative; top:0px; border-top:1px solid rgba(255, 255, 255, 0.452)">
+ 
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      {{#if user}}
+      <li class="nav-item active btn p-0 pl-2 pr-2">
+        <a class="nav-link" href="/digitalCard/profile">Profile</a>
+      </li>
+      {{/if}}
+      <li class="nav-item active btn p-0 pl-2 pr-2">
+        <a class="nav-link" href="/digitalCard/template">Template</a>
+      </li>
+      <li class="nav-item active btn p-0 pl-2 pr-2">
+        <a class="nav-link" href="/digitalCard/pdf">Digital Card</a>
+      </li>
+
+    </ul>
+
+    </div>
+    </nav>
+    {{/if}}
+{{/if}}
+{{#if customerRecord}}
+<nav class="navbar navbar-expand navbar-dark " style="z-index: 10; position:relative; top:0px; border-top:1px solid rgba(255, 255, 255, 0.452)">
+ 
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      {{#if user}}
+      <li class="nav-item active btn p-0 pl-2 pr-2">
+        <a class="nav-link" href="/customerRecord/createRecord/?userId={{user._id}}&pwd=123">Create Record</a>
+      </li>
+      {{/if}}
+      <li class="nav-item active btn p-0 pl-2 pr-2">
+        <a class="nav-link" href="/customerRecord/record">Record</a>
+      </li>
+     
+
+    </ul>
+
+    </div>
+    </nav>
+    {{/if}}

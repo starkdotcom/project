@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" class="css">
+
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<div class="limiter">
+    <div class="container" style="display flex; align-items:center; justify   color:rgb(0, 0, 0); background: rgb(255, 255, 255);margin:30px;border:1px solid;border-radius:10px;">
+        <div class="wrap p-l-20 p-r-20 p-t-25 p-b-25">
+            <span class="login100-form-title p-b-25">
+                Customer Records
+            </span>
+            <table id="myTable" style="color:rgb(0, 0, 0); background: rgb(255, 255, 255)"" class="table table-stripped">
+               <thead><tr> <th class="">Name</th> 
+                <th class="">Email</th>
+                <th class="">Mobile No.</th>
+                <th class="">Address</th>
+                <th class="">Time</th>
+                <th class="">Date</th>
+                </tr></thead>
+            {{#each record}}
+            <tr>
+            <td class=" m-b-10"><label type="firstname" name="name">{{this.firstname}} {{this.lastname}}</label></td>
+            <td class=" m-b-10"><label class="" type="email" name="email">{{this.email}}</label></td>
+            <td class=" m-b-10"><label class="" type="mobile" name="mobile">{{this.mobile}}</label></td>
+            <td class=" m-b-10"><label class="" type="address" name="address">{{this.address}}</label></td>
+            <td class=" m-b-10"><label class="" type="time" name="time">{{this.time}}</label></td>
+            <td class=" m-b-10"><label class="" type="date" name="date">{{this.date}}</label></td>
+            </tr>
+            {{/each}}
+            </table>
+            
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+ <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>

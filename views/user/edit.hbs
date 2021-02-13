@@ -1,0 +1,382 @@
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDJe-XTYumSXmBafAUlOMn6Dp-_efHFlJQ"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+<style>
+    .container {
+        width: 50%;
+    }
+
+    #map {
+        height: 50vh;
+        margin-bottom: 10px;
+        display: none;
+    }
+
+    #locationList .card {
+        padding: 10px;
+    }
+
+    #toast-container {
+        top: 50%;
+        bottom: unset;
+    }
+
+    .toast {
+        background-color: rgba(0, 0, 0, .8);
+    }
+
+    .btn i {
+        font-size: 1rem;
+        margin-right: 2px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        .container {
+            width: 80%;
+            max-width: 800px;
+        }
+    }
+</style>
+
+<div class="limiter">
+    <div class="container-login100" >
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-25 p-b-25">
+            <form class="login100-form validate-form" method="POST" action="/digitalCard/profile/edit">
+                <span class="login100-form-title p-b-25">
+                   Edit Profile Details
+                </span>
+                 {{#with profile}}
+               {{#if (eq ../value "name")  }}
+                <div class="wrap-input100 validate-input m-b-10" data-validate="First Name is required">
+                    <span class="label-input100">First Name</span>
+                    <input class="input100" type="firstname" name="firstname" value="{{this.firstname}}" placeholder="Type your First Name">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Lastame is required">
+                    <span class="label-input100">Last Name</span>
+                    <input class="input100" type="lastname" name="lastname" value="{{this.lastname}}" placeholder="Type your Last Name">
+                    <span class="focus-input100" data-symbol="&#xf207;"></span>
+                </div>
+                {{else}}
+                <input  type="firstname" name="firstname" value="{{this.firstname}}">
+                <input  type="lastname" name="lastname" value="{{this.lastname}}">
+                {{/if}}
+
+                {{#if (eq ../value "email")}}
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Email is required">
+                    <span class="label-input100">Email</span>
+                    <input class="input100" type="email" name="email" value="{{this.email}}" placeholder="Type your email">
+                    <span class="focus-input100" data-symbol="&#xf15a;"></span>
+                </div>
+                {{else}}<input type="email" name="email" value="{{this.email}}" hidden>
+                {{/if}}
+                {{#if (eq ../value "mobile")}}
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Mobile is required">
+                    <span class="label-input100">Mobile No.</span>
+                    <input class="input100" type="mobile" name="mobile" value="{{this.mobile}}" placeholder="Type your mobile">
+                    <span class="focus-input100" data-symbol="&#xf2be;"></span>
+                </div>
+                {{else}}<input type="mobile" name="mobile" value="{{this.mobile}}" hidden>
+                {{/if}}
+                {{#if (eq ../value "whatsappNo")}}
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Whatsapp No. is required">
+                    <span class="label-input100">Whatsapp No.</span>
+                    <input class="input100" type="mobile" name="whatsappNo" value="{{this.whatsappNo}}" placeholder="Type your Whatsapp No.">
+                    <span class="focus-input100" data-symbol="&#xf2be;"></span>
+                </div>
+                {{else}}
+                <input type="whatsappNo" name="whatsappNo" value="{{this.whatsappNo}}" hidden>
+                {{/if}}
+                {{#if (eq ../value "websiteLink")}}
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Website is required">
+                    <span class="label-input100">Website</span>
+                    <input class="input100" type="text" name="websiteLink" value="{{this.websiteLink}}" placeholder="Type your website link">
+                    <span class="focus-input100" data-symbol="&#xf2be;"></span>
+                </div>
+                {{else}}
+                <input type="websiteLink" name="websiteLink" value="{{this.websiteLink}}" hidden>
+                {{/if}}
+                {{#if (eq ../value "instaLink")}}
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Instagram Link is required">
+                    <span class="label-input100">Instagram Link</span>
+                    <input class="input100" type="text" name="instaLink" value="{{this.instagramLink}}" placeholder="Type your Instagram link">
+                    <span class="focus-input100" data-symbol="&#xf2be;"></span>
+                </div>
+                {{else}}
+                <input type="instaLink" name="instaLink" value="{{this.instaLink}}" hidden>
+                {{/if}}
+                {{#if (eq ../value "facebookLink")}}
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Facebook link is required">
+                    <span class="label-input100">Facebook Link</span>
+                    <input class="input100" type="text" name="facebookLink" value="{{this.facebookLink}}" placeholder="Type your Facebook link">
+                    <span class="focus-input100" data-symbol="&#xf2be;"></span>
+                </div>
+                {{else}}
+                <input type="facebookLink" name="facebookLink" value="{{this.facebookLink}}" hidden>
+                {{/if}}
+                {{#if (eq ../value "youtubeLink")}}
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Youtube Channel link is required">
+                    <span class="label-input100">Youtube Link</span>
+                    <input class="input100" type="text" name="youtubeLink" value="{{this.youtubeLink}}" placeholder="Type your Youtube Channel link">
+                    <span class="focus-input100" data-symbol="&#xf2be;"></span>
+                </div>
+                {{else}}
+                <input type="youtubeLink" name="youtubeLink" value="{{this.youtubeLink}}" hidden>
+                {{/if}}
+                {{#if (eq ../value "location")}}
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Location is required">
+                    <span class="label-input100">Location</span>
+                    <div id="map"> </div>
+                    <p id="current_position"></p>
+                    <p id="lat" >{{this.location}}</p>
+                    <button type="button" id="showMe" class="btn center-align">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Use My Location
+                    </button>
+                    <input id="lat" type="text" name="lat" value="{{this.lat}}" hidden >
+                    <input id="long" type="text" name="long" value="{{this.long}}" hidden>
+
+
+                    <div id="locationList"></div>
+                    <br>
+
+
+                </div>
+                {{else}}
+                  <input  type="text" name="lat" value="{{this.lat}}" hidden>
+                    <input  type="text" name="long" value="{{this.long}}" hidden>
+                {{/if}}
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button type="submit" class="login100-form-btn">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+                {{/with}}
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>//This div will be used to show Google map
+const mapArea = document.getElementById('map');
+
+const $ = id => document.getElementById(id);
+
+const actionBtn = document.getElementById('showMe');
+const locationsAvailable = document.getElementById('locationList');
+let Gmap, Gmarker;
+
+const __KEY = "AIzaSyDJe-XTYumSXmBafAUlOMn6Dp-_efHFlJQ";
+
+actionBtn.addEventListener('click', e => {
+  // hide the button 
+  actionBtn.style.display = "none";
+
+  // call Materialize toast to update user 
+  //M.toast({ html: 'I am fetching your current location', classes: 'rounded' });
+
+  // get the user's position
+  getLocation();
+
+});
+
+getLocation = () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(displayLocation, showError, options)
+    
+
+  }
+  else {
+    M.toast({ html: 'Sorry, your browser does not support this feature... Please Update your Browser to enjoy it', classes: 'rounded' });
+  }
+}
+
+// displayLocation
+displayLocation = (position) => {
+  const lat = position.coords.latitude;
+  const lng = position.coords.longitude;
+
+  const latlng = { lat, lng }
+
+  showMap(latlng, lat, lng);
+  createMarker(latlng);
+  
+  mapArea.style.display = "block";
+  getGeolocation(lat, lng);
+  
+
+}
+
+// Recreates the map
+showMap = (latlng, lat, lng) => {
+  let mapOptions = {
+    center: latlng,
+    zoom: 17
+  };
+
+  Gmap = new google.maps.Map(mapArea, mapOptions);
+
+  Gmap.addListener('drag', function () {
+    Gmarker.setPosition(this.getCenter()); // set marker position to map center
+  });
+
+  Gmap.addListener('dragend', function () {
+    Gmarker.setPosition(this.getCenter()); // set marker position to map center
+  });
+
+  Gmap.addListener('idle', function () {
+
+    Gmarker.setPosition(this.getCenter()); // set marker position to map center
+
+    if (Gmarker.getPosition().lat() !," lat || Gmarker.getPosition().lng() !," lng) {
+      setTimeout(() => {
+        // console.log("I have to get new geocode here!")
+        updatePosition(this.getCenter().lat(), this.getCenter().lng()); // update position display
+      }, 2000);
+    }
+  });
+
+}
+
+// Creates marker on the screen
+createMarker = (latlng) => {
+  let markerOptions = {
+    position: latlng,
+    map: Gmap,
+    animation: google.maps.Animation.BOUNCE,
+    clickable: true
+    // draggable: true
+  };
+  Gmarker = new google.maps.Marker(markerOptions);
+
+}
+
+// updatePosition on 
+updatePosition = (lat, lng) => {
+
+  getGeolocation(lat, lng);
+  document.getElementById('lat').value=`${lat}`;
+  document.getElementById('long').value=`${lng}`;
+}
+
+// Displays the different error messages
+showError = (error) => {
+  mapArea.style.display = "block"
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      mapArea.innerHTML = "You denied the request for your location."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      mapArea.innerHTML = "Your Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      mapArea.innerHTML = "Your request timed out. Please try again"
+      break;
+    case error.UNKNOWN_ERROR:
+      mapArea.innerHTML = "An unknown error occurred please try again after some time."
+      break;
+  }
+}
+
+const options = {
+  enableHighAccuracy: true
+}
+
+getGeolocation = (lat, lng) => {
+
+  const latlng = lat + "," + lng;
+
+  fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latlng}&key=${__KEY}`)
+
+    .then(res => res.json())
+    .then(data => populateCard(data.results));
+
+}
+
+function removeAddressCards() {
+  if (locationsAvailable.hasChildNodes()) {
+    while (locationsAvailable.firstChild) {
+      locationsAvailable.removeChild(locationsAvailable.firstChild);
+    }
+  }
+}
+
+populateCard = (geoResults) => {
+  // check if a the container has a child node to force re-render of dom
+  removeAddressCards();
+
+  geoResults.map(geoResult => {
+
+    // first create the input div container
+    const addressCard = document.createElement('div');
+
+    // then create the input and label elements
+    const input = document.createElement('input');
+    const label = document.createElement('label');
+
+    // then add materialize classes to the div and input
+    addressCard.classList.add("card");
+    input.classList.add("with-gap");
+
+    // add attributes to them
+    label.setAttribute("for", geoResult.place_id);
+    label.innerHTML = geoResult.formatted_address;
+
+    input.setAttribute("name", "address");
+    input.setAttribute("type", "radio");
+    input.setAttribute("value", geoResult.formatted_address);
+    input.setAttribute("id", geoResult.place_id);
+    // input.addEventListener('click', e => console.log(123));
+    input.addEventListener('click', () => inputClicked(geoResult));
+    // finalResult = input.value;
+    finalResult = geoResult.formatted_address;
+
+
+    addressCard.appendChild(input);
+    addressCard.appendChild(label);
+
+    // console.log(geoResult.formatted_address)
+
+    return (
+      locationsAvailable.appendChild(addressCard)
+    );
+  })
+}
+
+inputClicked = (result) => {
+
+  result.address_components.map(component => {
+    const types = component.types
+
+    if (types.includes('postal_code')) {
+      $('postal_code').value = component.long_name
+    }
+
+    if (types.includes('locality')) {
+      $('locality').value = component.long_name
+    }
+
+    if (types.includes('administrative_area_level_2')) {
+      $('city').value = component.long_name
+    }
+
+    if (types.includes('administrative_area_level_1')) {
+      $('state').value = component.long_name
+    }
+
+    if (types.includes('point_of_interest')) {
+      $('landmark').value = component.long_name
+    }
+  });
+
+  $('address').value = result.formatted_address;
+
+  // to avoid labels overlapping prefilled contents
+  M.updateTextFields();
+  removeAddressCards();
+}</script>
