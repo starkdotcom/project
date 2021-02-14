@@ -17,6 +17,7 @@ const QRCode = require('qrcode')
 const puppeteer = require ('puppeteer');     // Include puppeteer module
 const fs = require ('fs');   // file system Node.js module.
 const userHelpers=require('../helpers/userHelpers');
+const { NetworkAuthenticationRequire } = require('http-errors');
 var userDetails;
 const verifyLogin=(req,res,next)=>{
   if(req.session.userLoggedIn){
@@ -49,8 +50,8 @@ router.get('/digitalCard/generatePdf',verifyLogin,async function (req,res,next) 
     const page = await browser.newPage();	
 
      //1. Create PDF from URL
-    //profile=await userHelpers.getProfile(user._id)
-    await page.goto('http://localhost:3000/digitalCard/template'+temp)//,{template:true,profile:profile})
+    let profile=await userHelpers.getProfile(user._id)
+    await page.goto('http://localhost:3000/digitalCard/template1?nav=true&id='+user._id+'&temp='+temp)//,{template:true,profile:profile})
 		await page.emulateMedia ('screen');
 		await page.pdf ({
 		path: './public/user/digitalCards/'+user._id+'.pdf', // name of your pdf file in directory
@@ -59,7 +60,7 @@ router.get('/digitalCard/generatePdf',verifyLogin,async function (req,res,next) 
     preferCSSPageSize: true,     // print background property
 		});
 		await console.log ('done');  // console message when conversion  is complete!
-	//await browser.close();
+	//await browser.close()
   //	process.exit();
     //await ExampleOperations();
 	} catch (e) {
@@ -71,7 +72,7 @@ router.get('/digitalCard/generatePdf',verifyLogin,async function (req,res,next) 
 
 } ) ;
 router.get('/digitalCard/pdf',verifyLogin,async (req,res)=>{
-  let userId=req.session.user._id
+  let userId=req.query.id || req.session.user._id 
   var data = await fs.readFileSync('./public/user/digitalCards/'+userId+'.pdf');
   res.contentType("application/pdf");
   res.send(data);
@@ -85,17 +86,28 @@ router.get('/digitalCard/template',verifyLogin,async function(req, res, next) {
   })
   })
 router.get('/digitalCard/template1',async function(req, res, next) {
-  let id=req.session.user._id
- // userHelpers.getProfile(user._id).then((profile)=>{
-        //userDetails=profile.profile
+  let temp=req.query.temp;
+  var navbar,save,id;
+  if (req.query.nav){
+    navbar=true
+    save=true
+    id=req.query.id
+  }
+  else{
+   navbar= false;
+   save=false;
+   id=req.session.user._id;
+  }
+  let user=req.session.user
+  let userDetails;
+  userHelpers.getProfile(id).then((profile)=>{
+        userDetails=profile
       //  profile=userDetails
       console.log(userDetails);
-        res.render('user/template1', {template:true,id,profile:userDetails
-        });
+      console.log("save:",save,"navbar:",navbar )
+        res.render('templates/template'+temp, {temp:temp,template:navbar,save:!save,user,id,profile:userDetails});
       })
-
-
-
+})
 
 router.get('/digitalCard/createProfile',verifyLogin,async function(req, res, next) {
   let user=req.session.user
@@ -113,35 +125,26 @@ router.post('/digitalCard/createProfile',verifyLogin,async (req,res)=>{
     res.redirect('/digitalCard/profile')
   }) 
 })
-/*const async generateQR(text) => {
-  try {
-    //console.log(await QRCode.toDataURL(text))
-    qr=await QRCode.toDataURL(text)
-    return(qr);
-  } catch (err) {
-    console.error(err)
-  }
-}*/
+
 router.get('/digitalCard/profile',verifyLogin,async function(req, res, next) {
   let user=req.session.user
   let id=user._id;
-  let qrco;
-  let link="";
+  let path = './public/user/digitalCards/'+id+'.pdf'
+
+
   userHelpers.getProfile(user._id).then((profile)=>{
     userDetails=profile;
-   /* link=JSON.stringify(userDetails.recLink);*/
-    QRCode.toDataURL("http://localhost:3000/digitalCard/pdf", function (err, url) {
-      console.log(url);
-     // userDetails.
-      qrco=url;
-    })
-    /*
-    generateQR("https://davidwalsh.name").then((response)=>{
-      QR=response[0];
-    });*/
-    console.log(id,userDetails,qrco);
-    
-    res.render('user/profile', {user,id,qrco,digitalCard:true,profile});
+    fs.access(path, fs.F_OK, (err) => {
+      if (err) {
+        console.error(err)
+        return }
+      else{
+    QRCode.toDataURL("http://localhost:3000/digitalCard/pdf?id="+id, function (err, url) {
+      //console.log(url);
+      userDetails.qrco=url; })
+    }})
+    //console.log(userDetails.qrco);
+    res.render('user/profile', {user,id,digitalCard:true,profile});
   }).catch(()=>{
     res.redirect('/digitalCard/createProfile')
   })
@@ -169,17 +172,18 @@ router.post('/digitalCard/profile/edit',verifyLogin,async (req,res)=>{
 router.get('/customerRecord/record',verifyLogin,async function(req, res, next) {
    let user=req.session.user
    var Record
-   userHelpers.getRecord(user._id).then((response)=>{Record=response
+   userHelpers.getRecord(user._id).then((response)=>{
+   Record=response
    console.log("RECORD:",Record);
         res.render('user/customerRecord', {customerRecord:true,user,template:false,record:Record})
+   }).catch(()=>{
+    res.render('user/customerRecord', {customerRecord:true,user,template:false,record:Record})
    })})
-    //   })
-    router.get('/customerRecord/createRecord/',async function(req, res, next) {
+router.get('/customerRecord/createRecord/',async function(req, res, next) {
       let userId=req.query.userId
       let user=req.session.user
-     
-            res.render('user/createRecord', {user,customerRecord:true,userId,template:true});})
-    // })
+res.render('user/createRecord', {user,customerRecord:true,userId,template:true});})
+
 router.post('/customerRecord/createRecord/',async function(req, res, next) {
   let userId=req.query.userId     
   //let user=req.session.user
