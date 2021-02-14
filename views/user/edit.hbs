@@ -64,6 +64,24 @@
                 <input  type="lastname" name="lastname" value="{{this.lastname}}">
                 {{/if}}
 
+                {{#if (eq ../value "company")}}
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Company is required">
+                    <span class="label-input100">Company or Establishment</span>
+                    <input class="input100" type="company" name="company" value="{{this.company}}" placeholder="Type your Company/Establishment Name">
+                    <span class="focus-input100" data-symbol="&#xf15a;"></span>
+                </div>
+                {{else}}<input type="company" name="company" value="{{this.company}}" hidden>
+                {{/if}}
+
+                 {{#if (eq ../value "desg")}}
+                <div class="wrap-input100 validate-input m-b-10" data-validate="Designation is required">
+                    <span class="label-input100">Designation</span>
+                    <input class="input100" type="desg" name="desg" value="{{this.desg}}" placeholder="Type your Designation">
+                    <span class="focus-input100" data-symbol="&#xf15a;"></span>
+                </div>
+                {{else}}<input type="desg" name="desg" value="{{this.desg}}" hidden>
+                {{/if}}
+                
                 {{#if (eq ../value "email")}}
                 <div class="wrap-input100 validate-input m-b-10" data-validate="Email is required">
                     <span class="label-input100">Email</span>

@@ -3,7 +3,6 @@
         margin-top: 2rem;
         margin-bottom: 2rem;
     }
-
     .box {
         border: 3px solid #ffffff;
         border-radius: 20px;
@@ -11,10 +10,6 @@
         margin: 0;
 
     }
-
-    /* background-color: #808080;
-    }*/
-
     .boxin {
         overflow: hidden;
         border-bottom: 2px solid #fafafa;
@@ -24,18 +19,18 @@
 </style>
 
 <div class="container text-center">
-    <h1 class="text-center">Profile</h1>
+    <h1 class="text-left">Profile:</h1>
     <div class="container-fluid p-0" style="display: block; width:100%;   border-radius: 4px;border: 1px #ddd    position: relative;">
-<img style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src= "{{../qrco}}">
- 
+    {{#if profile.qrco}}
+    <div id="canvas" style="" class=" row p-1">
+       <h4 class="col-6 text-center m-4 p-3"> Scan or Share<br>  QR Code  <br>for your Digital Card!</h4>
+        <img class="ml-5 m-3 col-3" style="background-color:black;padding:10px;border:2px solid white; border-radius:8px;-webkit-user-select: none;/* background-color: hsl(0, 0%, 90%)*/;transition: background-color 300ms;" src= "{{profile.qrco}}">
+    </div>
+    {{/if}}
         <div style="text-align:left; font-size: large;">
             </div<br>
             <ul class="box">
                 {{#with profile}}
-                <input type="text" id="link" value="{{this.recLink}}" hidden>
-                <div id="canvas">
-                    
-                </div>
                 <li class="boxin">
                     <form action="/digitalCard/profile/edit" method="GET">
                         <div class="row">
@@ -51,6 +46,42 @@
                                 </span>
                             </div>
                         </div>
+                    </form>
+                </li>
+                <li class="boxin">
+                    <form action="/digitalCard/profile/edit" method="GET">
+                        <div class="row" style="">
+                            <div class="col-9 p-3 pl-5 m-0">
+                                <div class="row"><strong>Company/Establishment:</strong></div>
+                                <div class="row" style="overflow:hidden;">{{this.company}} </div>
+                            </div>
+                            <div class="col-3 m-auto" style="padding-right: 2rem;padding-left: 0;">
+                                <span>
+                                    <input type="hidden" name="id" value={{../id}}>
+                                    <input type="hidden" name="value" value="company">
+                                    <input class="btn btn-grey" type="submit" value="Edit">
+                                </span>
+                            </div>
+                        </div>
+
+                    </form>
+                </li>
+                <li class="boxin">
+                    <form action="/digitalCard/profile/edit" method="GET">
+                        <div class="row" style="">
+                            <div class="col-9 p-3 pl-5 m-0">
+                                <div class="row"><strong>Designation:</strong></div>
+                                <div class="row" style="overflow:hidden;">{{this.desg}} </div>
+                            </div>
+                            <div class="col-3 m-auto" style="padding-right: 2rem;padding-left: 0;">
+                                <span>
+                                    <input type="hidden" name="id" value={{../id}}>
+                                    <input type="hidden" name="value" value="desg">
+                                    <input class="btn btn-grey" type="submit" value="Edit">
+                                </span>
+                            </div>
+                        </div>
+
                     </form>
                 </li>
                 <li class="boxin">
@@ -74,7 +105,7 @@
                 <li class="boxin">
                  <div class="row" style="">
                             <div class="col-9 p-3 pl-5 m-0"<strong>CORAZON Record Service:</strong></div>
-                            <div class="col-3 m-auto" style="overflow:hidden;"><a href="http://localhost:3000/customerRecord/createRecord/?userId={{../id}}" class="btn text-dark bg-white">Click</a> </div> 
+                            <div class="col-3 m-auto" style="padding-right: 2rem;padding-left: 0;overflow:hidden;"><a href="http://localhost:3000/customerRecord/createRecord/?userId={{../id}}" class="btn text-dark bg-white">Click</a> </div> 
                         </li>
                 <li class="boxin">
                     <form action="/digitalCard/profile/edit" method="GET">
@@ -183,31 +214,14 @@
                 {{#each addr}}
                 <li class="boxin" style="border-bottom:none;">
                     <form action="/digitalCard/profile/edit/updateAddress/{{@index}}" method="get">
-
                         <div class="row" style="">
-
-
                             <div class="col-9 p-3 pl-5 m-0">
                                 <div class="row"><strong>Address:</strong></div>
-
                                 <div class="row"><input type="radio" value="{{@index}}">
                                     {{this.name}}<br>{{this.address}},{{this.city}},{{this.state}},{{this.zip}}<br>{{this.mobile}}
                                     <hr>
                                 </div>
-
-
                             </div>
-
-
-                            <div class="col-3 m-auto" style="padding-right: 2rem;padding-left: 0;">
-                                <span>
-                                    <button class="btn btn-grey" type="submit">Edit</button>
-                                </span>
-                                <span><a href="/addAddress" class="btn btn-grey bg-white" type="submit"
-                                        name="addAddress">Add Address</a>
-                                </span>
-                            </div>
-
                         </div>
                     </form>
                 </li>
@@ -215,16 +229,3 @@
             </ul>
         </div>
     </div>
-
-    <script>
-    var link = document.getElementById('link').value;
-    var canvas = document.getElementById('canvas');
-const generateQR = async link => {
-  try {
- console.log(link)
-    await QRCode.toCanvas(canvas, link)
-  } catch (err) {
-    console.error(err)
-  }
-}
-</script>
