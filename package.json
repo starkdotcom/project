@@ -6,10 +6,12 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "async": "^3.2.0",
     "bcrypt": "^5.0.0",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "~1.4.4",
     "covid19-api": "^1.2.1",
+    "crypto": "^1.0.1",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-flash": "0.0.2",
