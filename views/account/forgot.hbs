@@ -1,24 +1,13 @@
- form(method='POST')
-    legend Forgot Password
-    .form-group
-      label(for='email') Email
-      input.form-control(type='text', name='email', autofocus)
-    button.btn.btn-primary(type='submit') Reset Password
-
-
-  
 <head>
-    <title>Reset Password</title>
+    <title>Forgot Password</title>
 </head>
 
-
-
-    <div class="limiter">
+<div class="limiter">
         <div class="container-login100" style="/*background-image: url('/icons/bg-01.jpg');*/">
             <div class="wrap-login100 p-l-55 p-r-55 p-t-25 p-b-25">
                 <form class="login100-form validate-form" method="POST" action="/account/forgot">
                     <span class="login100-form-title p-b-25">
-                        Reset Password
+                        Forgot Password
                     </span>
 
                     <div class="wrap-input100 validate-input m-b-10" data-validate="Username is reauired">
@@ -28,25 +17,6 @@
                     </div>
 
 
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <span class="label-input100">New Password</span>
-                        <span class="btn-show-pass">
-                            <i class="zmdi zmdi-eye" id="togglePassword"></i>
-                        </span>
-                        <input class="input100" id="password" type="password" name="password"
-                            placeholder="Type your password">
-                        <span class="focus-input100" data-symbol="&#xf190;"></span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <span class="label-input100">Confirm Password</span>
-                        <span class="btn-show-pass">
-                            <i class="zmdi zmdi-eye" id="togglePassword"></i>
-                        </span>
-                        <input class="input100" id="password" type="password" name="password"
-                            placeholder="Type your password">
-                        <span class="focus-input100" data-symbol="&#xf190;"></span>
-                    </div>
                     <div class="m-1 p-1 container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>

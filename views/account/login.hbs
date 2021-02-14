@@ -1,52 +1,44 @@
 <div class="limiter">
-	<div class="container-login100" style="/*background-image: url('icons/bg-01.jpg');*/">
-		<div class="wrap-login100 p-l-55 p-r-55 p-t-53 p-b-54">
-			<form class="login100-form validate-form" action="/account/login" method="POST">
-				<span class="login100-form-title p-b-45">
-					Login
-				</span>
-				{{#if loginErr}}
-				<div class="form-group">
-					<label for="InvalidCase" class="mt-3 text-danger">{{loginErr}}</label>
-				</div>
-				{{/if}}
-				<div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
-					<span class="label-input100">Email</span>
-					<input class="input100" type="email" name="email" placeholder="Type your email">
-					<span class="focus-input100" data-symbol="&#xf206;"></span>
-				</div>
+<div class="container-login100" style="/*background-image: url('icons/bg-01.jpg');*/">
+<div class="wrap-login100 p-l-55 p-r-55 p-t-53 p-b-54">
+<form class="login100-form validate-form" action="/account/login" method="POST">
+<span class="login100-form-title p-b-45">
+Login
+</span>
+{{#if loginErr}}
+<div class="form-group">
+<label for="InvalidCase" class="mt-3 text-danger">{{loginErr}}</label>
+</div>
+{{/if}}
+<div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+<span class="label-input100">Email</span>
+<input class="input100" type="email" name="email" placeholder="Type your email">
+<span class="focus-input100" data-symbol="&#xf206;"></span>
+</div>
 
-				<div class="wrap-input100 validate-input" data-validate="Password is required">
-					<span class="label-input100">Password</span>
-					<span class="btn-show-pass">
-						<i class="zmdi zmdi-eye" id="togglePassword"></i>
-					</span>
-					<input class="input100" id="password" type="password" name="password"
-						placeholder="Type your password">
-					<span class="focus-input100" data-symbol="&#xf190;"></span>
-				</div>
-				<div class="p-t-8 p-b-28 ">
-					<a style="float: left;" href="/account/signup">
-						Create a new account
-					</a>
-
-					<a style="float: right;" href="#">
-						Forgot password?
-					</a>
-				</div>
-
-
-				<div class="container-login100-form-btn">
-					<div class="wrap-login100-form-btn">
-						<div class="login100-form-bgbtn"></div>
-						<button type="submit" class="login100-form-btn">
-							Login
-						</button>
-					</div>
-				</div>
-
-			</form>
-		</div>
-	</div>
+<div class="wrap-input100 validate-input" data-validate="Password is required">
+<span class="label-input100">Password</span>
+<span class="btn-show-pass">
+<i class="zmdi zmdi-eye" id="togglePassword"></i>
+</span>
+<input class="input100" id="password" type="password" name="password"
+placeholder="Type your password">
+<span class="focus-input100" data-symbol="&#xf190;"></span>
+</div>
+<div class="p-t-8 p-b-28 ">
+<a style="float: left;" href="/account/signup">Create a new account</a>
+<a style="float: right;" href="/account/forgot">Forgot password?</a>
+</div>
+<div class="container-login100-form-btn">
+<div class="wrap-login100-form-btn">
+<div class="login100-form-bgbtn"></div>
+<button type="submit" class="login100-form-btn">
+Login
+</button>
+</div>
+</div>
+</form>
+</div>
+</div>
 </div>
 <script type="text/javascript" src="/javascripts/main.js" defer></script>
